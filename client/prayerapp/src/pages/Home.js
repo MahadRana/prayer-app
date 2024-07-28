@@ -5,7 +5,6 @@ import { usePrayersContext } from '../hooks/usePrayersContext';
 const Home = () => {
     const {prayers, dispatch} = usePrayersContext()
 
-
     useEffect(() => {
         const fetchPrayers = async () => {
             const response = await fetch('/api/prayers', {method:'GET'})
@@ -49,8 +48,7 @@ const Home = () => {
         };
     }, [dispatch])
 
-
-    console.log(prayers)
+    
     return (
         <div className="Home">
             {prayers && prayers.map((prayer) => (

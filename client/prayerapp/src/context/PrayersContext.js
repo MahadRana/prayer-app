@@ -5,7 +5,6 @@ export const PrayersContext = createContext()
 export const prayerReducer = (state, action) => {
     switch (action.type){
         case 'SET_PRAYERS':
-            console.log(action.payload)
             return {
                 prayers:action.payload
             }
@@ -13,9 +12,11 @@ export const prayerReducer = (state, action) => {
             return {
                 prayers: [action.payload, ...state.prayers]
             }
-        case 'DELETE_PRAYER': 
+        case 'UPDATE_PRAYER':
             return {
-                prayers: state.prayers.filter((prayer) => prayer._id !== prayer.payload._id)  
+                prayers: state.prayers.map((prayer) =>
+                    prayer._id === action.payload._id ? { ...prayer, ...action.payload } : prayer
+                )
             }
         default: 
             return state

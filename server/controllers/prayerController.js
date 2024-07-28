@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 const getPrayerData = async (currentDate) =>{
     try {
-        const data = await fetch(`http://api.aladhan.com/v1/timingsByCity/27-07-2024?city=New+York+City&country=United+States&method=8`)
+        const data = await fetch(`http://api.aladhan.com/v1/timingsByCity?city=New+York+City&country=United+States&method=8`)
         if(!data.ok){
             throw new Error("Could not connect to API")
         }

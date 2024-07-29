@@ -22,8 +22,12 @@ const Home = () => {
             if(response.ok){
                 dispatch({type: 'CREATE_PRAYER', payload: json})
             }
+            if(!response.ok){
+                console.log("cannot add prayer")
+            }
         }
         fetchPrayers()
+        postPrayers()
         const now = new Date();
         const midnight = new Date(
           now.getFullYear(),
@@ -48,7 +52,8 @@ const Home = () => {
         };
     }, [dispatch])
 
-    
+
+
     return (
         <div className="Home">
             {prayers && prayers.map((prayer) => (

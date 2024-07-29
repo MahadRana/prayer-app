@@ -6,10 +6,12 @@ const prayerSchema = new Schema({
     gregorian_date: {
         type: String,
         required: true,
+        unique:true
       },
     hijri_date: {
         type: String,
-        required: true,
+        required: true, 
+        unique:true
     },
     fajr_checked: {
         type:Boolean,

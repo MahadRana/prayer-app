@@ -52,6 +52,13 @@ ul {
     }
 }
 
+@media (min-width:651px) and (max-width: 1000px) {
+  .Home {
+      grid-template-columns: 1fr 1fr;
+  }
+}
+
+
 /* Customize the label (the container) */
 .container {
     display: block;
